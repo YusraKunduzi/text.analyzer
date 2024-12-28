@@ -8,7 +8,7 @@ longest_words <- function(text) {
 
   #loop for each word
   for (line in seq_along(lines)) {
-    words <- unlist(strsplit(lines[line_number], "\\s+"))
+    words <- unlist(strsplit(lines[line], "\\s+"))
     #count the length of each word
     for (word in words) {
       word_length <- nchar(word)
@@ -23,6 +23,6 @@ longest_words <- function(text) {
   }
 
   #list of longest word with length and position
-  list(word = longest, length = longest_length, position = place)
+  list(word = longest_word, length = longest_length, position = place)
 
 }
