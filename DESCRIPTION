@@ -1,9 +1,15 @@
 Package: text.analyzer
-Title: What the Package Does (One Line, Title Case)
+Title: Text Analyzer Tool for R 
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Yusra", "Kunduzi", , "yusra.kunduzi@student.hu.nl", role = c("aut", "cre"))
+Description: A collection of 4 functions for quick text analysis in R. 
+    The 'text_summary' tool analyzes the text and summarizes the word count, 
+    sentence count, and average word length. 
+    The 'longest_word' function gives you the longest word and its position in the text. 
+    The 'top10_words' function counts the 10 words that are most frequent in the text. 
+    The 'sentence_summary' function summarizes the total number of sentences and the 
+    average word count per sentence.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

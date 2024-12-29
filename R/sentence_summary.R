@@ -1,3 +1,20 @@
+#' Sentence Summary
+#'
+#' This function summarizes each sentence of the input text
+#' by counting the sentences and calculating the average number of words per sentence.
+#'
+#'
+#' @param text character string containing the text to analyze. The text should
+#' be composed of sentences separated by periods (.), exclamation marks (!), or
+#' question marks (?).
+#'
+#' @return A list containing the sentence count and average word count
+#' @export
+#'
+#' @examples
+#' #How to use sentence_summary()
+#' text <-  "This is an example. It has more than two sentences! Well, this is the third."
+#' sentence_summary(text)
 sentence_summary <- function(text) {
   #split txt into sentences based on .?!
   sentences <- unlist(strsplit(text, "[.!?]"))

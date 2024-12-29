@@ -1,8 +1,21 @@
-longest_words <- function(text) {
+#' The Longest Word
+#'
+#' This function identifies the longest word, its position and its length in input the text.
+#'
+#' @param text A character string containing the text to analyze.
+#'
+#' @return A data frame with the longest word, its position and length.
+#' @export
+#'
+#' @examples
+#' #How to use longest_word()
+#' text <- "A sentence with words of varying lengths as an example"
+#' longest_word(text)
+longest_word <- function(text) {
   #make lines out of the text
   lines <- unlist(strsplit(text, "\n"))
   #make objects
-  longest_word <-  " "
+  long_word <-  " "
   longest_length <- 0
   place <-  NULL
 
@@ -15,14 +28,19 @@ longest_words <- function(text) {
 
       #checks if current word is longer than the previous longest word
       if (word_length > longest_length) {
-        longest_word <- word
+        long_word <- word
         longest_length <- word_length
-        place <- list(line = line_number, index = which(words == word))
+        place <- list(line = line, index = which(words == word))
       }
     }
   }
 
-  #list of longest word with length and position
-  list(word = longest_word, length = longest_length, position = place)
 
+  #print the results
+  cat("Longest Word:", long_word, "\n")
+  cat("Length:", longest_length, "\n")
+  cat("Position:\n")
+  cat("  Line:", place$line, "\n")
+  cat("  Index:", place$index, "\n")
 }
+
