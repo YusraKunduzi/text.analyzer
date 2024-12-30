@@ -36,11 +36,11 @@ longest_word <- function(text) {
   }
 
 
-  #print the results
-  cat("Longest Word:", long_word, "\n")
-  cat("Length:", longest_length, "\n")
-  cat("Position:\n")
-  cat("  Line:", place$line, "\n")
-  cat("  Index:", place$index, "\n")
+  #list with the results
+  list(
+    word = long_word,
+    length = longest_length,
+    position = place
+  )
 }
 

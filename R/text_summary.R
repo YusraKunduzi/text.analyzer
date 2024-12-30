@@ -15,16 +15,27 @@
 #' It has punctuation. It's also has a bunch of nonsense"
 #' text_summary(text)
 text_summary <- function(text) {
-  #extract words from text.
+  # Split text into words
   words <- unlist(strsplit(text, "\\s+"))
-  #extract sentences from text.
+
+  # Count words
+  word_count <- length(words)
+
+  # Split text into sentences
   sentences <- unlist(strsplit(text, "[.!?]"))
-  #average length of words in an object
-  average_word_length <- mean(nchar(words))
 
+  # Remove empty sentences
+  sentences <- sentences[nzchar(trimws(sentences))]
 
-  cat("Word Count:", length(words), "\n")
-  cat("Sentence Count:", length(sentences), "\n")
-  cat("Average Word Length:", average_word_length, "\n")
+  # Count sentences
+  sentence_count <- length(sentences)
 
-}
+  # Calculate average word length
+  average_word_length <- mean(nchar(words), na.rm = TRUE)
+
+  # Return a list
+  return(structure(list(word_count = word_count,
+                        sentence_count = sentence_count,
+                        average_word_length = average_word_length),
+                   class = "text_summary"))
+  }

@@ -16,28 +16,35 @@
 #' text <-  "This is an example. It has more than two sentences! Well, this is the third."
 #' sentence_summary(text)
 sentence_summary <- function(text) {
-  #split txt into sentences based on .?!
+  # Split text into sentences based on .!?
   sentences <- unlist(strsplit(text, "[.!?]"))
 
-  #count sentence
+  # Remove empty sentences
+  sentences <- sentences[nzchar(trimws(sentences))]
+
+  # Count sentences
   sentence_count <- length(sentences)
 
-  #object for word counts
+  # If there are no sentences, return a list with counts set to zero
+  if (sentence_count == 0) {
+    return(list(sentence_count = 0, avg_word_count = NA))
+  }
+
+  # Object for word counts
   word_counts <- numeric(sentence_count)
 
-  #loop for counting of words
+  # Loop for counting of words
   for (y in 1:sentence_count) {
     # Split the current sentence into words and count them
-    words <- unlist(strsplit(sentences[y], "\\s+"))
+    words <- unlist(strsplit(trimws(sentences[y]), "\\s+"))
     word_counts[y] <- length(words)
   }
 
-  #mean word_count per sentence
+  # Mean word count per sentence
   avg_word_count <- mean(word_counts)
 
-  #list with sentence_count and average word count per sentence
-  list(
-    sentence_count = sentence_count,
-    average_word_count = avg_word_count
-  )
+  # List with sentence_count and average word count per sentence
+  return(structure(list(sentence_count = sentence_count,
+                        avg_word_count = avg_word_count),
+                   class = "sentence_summary"))
 }
