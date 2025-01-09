@@ -27,24 +27,37 @@ sentence_summary <- function(text) {
 
   # If there are no sentences, return a list with counts set to zero
   if (sentence_count == 0) {
-    return(list(sentence_count = 0, avg_word_count = NA))
+    return(list(
+      sentence_count = 0,
+      avg_sentence_length = NA,
+      longest_sentence = NA,
+      shortest_sentence = NA,
+      readability_score = NA
+    ))
   }
 
-  # Object for word counts
-  word_counts <- numeric(sentence_count)
+  # Calculate sentence lengths (in words)
+  sentence_lengths <- sapply(sentences, function(sentence) {
+    length(unlist(strsplit(trimws(sentence), "\\s+")))
+  })
 
-  # Loop for counting of words
-  for (y in 1:sentence_count) {
-    # Split the current sentence into words and count them
-    words <- unlist(strsplit(trimws(sentences[y]), "\\s+"))
-    word_counts[y] <- length(words)
-  }
+  # Identify the longest and shortest sentences
+  longest_sentence <- sentences[which.max(sentence_lengths)]
+  shortest_sentence <- sentences[which.min(sentence_lengths)]
 
-  # Mean word count per sentence
-  avg_word_count <- mean(word_counts)
+  # Calculate average sentence length
+  avg_sentence_length <- mean(sentence_lengths)
 
-  # List with sentence_count and average word count per sentence
-  return(structure(list(sentence_count = sentence_count,
-                        avg_word_count = avg_word_count),
-                   class = "sentence_summary"))
+  # Compute a basic readability score (e.g., Flesch-Kincaid-like formula)
+  readability_score <- 206.835 - (1.015 * avg_sentence_length) -
+    (84.6 * (sum(nchar(unlist(strsplit(text, "\\s+")))) / length(unlist(strsplit(text, "\\s+")))))
+
+  # List
+  return(structure(list(
+    sentence_count = sentence_count,
+    avg_sentence_length = avg_sentence_length,
+    longest_sentence = longest_sentence,
+    shortest_sentence = shortest_sentence,
+    readability_score = readability_score
+  ), class = "sentence_summary"))
 }
