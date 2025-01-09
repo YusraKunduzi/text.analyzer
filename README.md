@@ -8,7 +8,16 @@ The goal of text.analyzer is to help with analyzing a piece of text quicker and 
 ## Installation
 
 You can install the development version of text.analyzer from [GitHub](https://github.com/YusraKunduzi/text.analyzer) with:
+```r
+# install.packages("devtools")
 devtools::install_github("YusraKunduzi/text.analyzer")
+
+or
+
+# install.packages("pak")
+pak::pak("YusraKunduzi/text.analyzer")
+```
+
 
 ## Features
 
@@ -28,10 +37,6 @@ devtools::install_github("YusraKunduzi/text.analyzer")
 - Readability score
 
 
-``` r
-# install.packages("pak")
-pak::pak("YusraKunduzi/text.analyzer")
-```
 
 ## Example
 
@@ -57,7 +62,8 @@ print(longest)
 top <- top10_words(text)
 print(top)
 
-#sentences <- sentence_summary(text)
+#How to use sentence_summary
+sentences <- sentence_summary(text)
 print(sentences)
 
 
