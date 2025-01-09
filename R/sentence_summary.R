@@ -1,14 +1,15 @@
 #' Sentence Summary
 #'
 #' This function summarizes each sentence of the input text
-#' by counting the sentences and calculating the average number of words per sentence.
+#' by counting the sentences, calculating the average sentence length,
+#' calculating the readability score and giving you the longest and shortest sentences of your input.
 #'
 #'
 #' @param text character string containing the text to analyze. The text should
 #' be composed of sentences separated by periods (.), exclamation marks (!), or
 #' question marks (?).
 #'
-#' @return A list containing the sentence count and average word count
+#' @return A list containing the sentence count, average word count, longest word, shortest word and readability score.
 #' @export
 #'
 #' @examples

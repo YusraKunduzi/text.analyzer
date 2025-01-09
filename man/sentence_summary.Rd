@@ -12,11 +12,12 @@ be composed of sentences separated by periods (.), exclamation marks (!), or
 question marks (?).}
 }
 \value{
-A list containing the sentence count and average word count
+A list containing the sentence count, average word count, longest word, shortest word and readability score.
 }
 \description{
 This function summarizes each sentence of the input text
-by counting the sentences and calculating the average number of words per sentence.
+by counting the sentences, calculating the average sentence length,
+calculating the readability score and giving you the longest and shortest sentences of your input.
 }
 \examples{
 #How to use sentence_summary()
