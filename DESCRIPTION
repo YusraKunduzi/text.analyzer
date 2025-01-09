@@ -1,22 +1,24 @@
 Package: text.analyzer
 Title: Text Analyzer Tool for R 
 Version: 0.0.0.9000
-Authors@R: 
-    person("Yusra", "Kunduzi", , "yusra.kunduzi@student.hu.nl", role = c("aut", "cre"))
+Authors@R:
+    person("Yusra", "Kunduzi", email = "yusra.kunduzi@student.hu.nl", role = c("aut", "cre"))
 Description: A collection of 4 functions for quick text analysis in R. 
     The 'text_summary' tool analyzes the text and summarizes the word count, 
     sentence count, and average word length. 
     The 'longest_word' function gives you the longest word and its position in the text. 
     The 'top10_words' function counts the 10 words that are most frequent in the text. 
     The 'sentence_summary' function summarizes the total number of sentences, 
-    the average wordcount per sentence, the longest sentence, the shortest sentence and a readability score.
+    the average word count per sentence, the longest sentence, the shortest sentence, 
+    and a readability score.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Suggests: 
+Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+VignetteBuilder: knitr
 Imports:
     utils
 URL: https://github.com/YusraKunduzi/text.analyzer

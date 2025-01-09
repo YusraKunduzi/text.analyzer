@@ -1,0 +1,123 @@
+---
+title: "Text analysis made easier with the `text.analyzer` package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Text analysis made easier with the `text.analyzer` package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `text.analyzer` package helps with quick and easier text analysis in R. It contains four functions: `text_summary`, `sentence_summary`, `top10_words` and `longest_word`. This vignette will guide you through the use of this package and its functions.
+
+## Installation
+
+```r
+# install.packages("devtools")
+devtools::install_github("YusraKunduzi/text.analyzer")
+
+# Or
+
+# install.packages("pak")
+pak::pak("YusraKunduzi/text.analyzer")
+
+```
+
+## Parameters:
+`text`: A character string containing the text to analyze.
+
+## Features
+```{r input}
+
+library(text.analyzer)
+
+text <- text <- "This is a basic example. It has multiple sentences! All the sentences are divided by exclamation marks, questions marks or periods. Try it out and have fun!"
+
+```
+
+`text_summary(text)`
+This function summarizes the input text by:
+
+- Word count: Total number of words in the text.
+
+- Sentence count: Total number of sentences.
+
+- Average word length: Average length of words in the text.
+
+
+Example:
+
+```{r text_summary}
+sum <- text_summary(text)
+
+print(sum)
+
+```
+
+
+`longest_word(text)`
+
+- Identifies the longest word in the text and its position.
+
+Example:
+
+```{r longest_word}
+longest <- longest_word(text)
+
+print(longest)
+
+```
+
+
+`top10_words(text)`
+
+- Counts the 10 most frequent words in the text, excluding     common stop words.
+
+Example:
+
+```{r top10_words}
+top_words <- top10_words(text)
+
+print(top_words)
+
+```
+
+`sentence_summary(text)`
+
+Summarizes the sentences in the text by:
+
+- Total number of sentences
+
+- Average word count per sentence
+
+- Longest and shortest sentences
+
+- Readability score
+
+
+Example:
+```{r sentence_summary}
+sentences <- sentence_summary(text)
+
+print(sentences)
+
+```
+
+## Common errors
+
+Error: "Input must be a character string.": Make sure the input to the functions is a character string.
+
+Empty input: An empty string to any function may result in NA or an empty output. Always check your input before using the functions.
+
+## Conclusion
+
+The text.analyzer package offers a simple way to analyze text data in R. It includes functions to summarize text, identify key features, and analyze sentence structures. The package is designed to be efficient and easy to use, making it a helpful tool for text analysis.
+
+
+
