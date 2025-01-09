@@ -8,8 +8,8 @@ Description: A collection of 4 functions for quick text analysis in R.
     sentence count, and average word length. 
     The 'longest_word' function gives you the longest word and its position in the text. 
     The 'top10_words' function counts the 10 words that are most frequent in the text. 
-    The 'sentence_summary' function summarizes the total number of sentences and the 
-    average word count per sentence.
+    The 'sentence_summary' function summarizes the total number of sentences, 
+    the average wordcount per sentence, the longest sentence, the shortest sentence and a readability score.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
