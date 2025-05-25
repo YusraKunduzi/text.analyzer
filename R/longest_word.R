@@ -4,6 +4,7 @@
 #'
 #' @param text A character string containing the text to analyze.
 #'
+#'
 #' @return A data frame with the longest word, its position and length.
 #' @export
 #'
