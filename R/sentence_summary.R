@@ -55,7 +55,7 @@ sentence_summary <- function(text) {
 
   readability_score <- 206.835 -
     (1.015 * avg_sentence_length) -
-    (84.6 * avg_word_length)
+    (20 * avg_word_length)  # adjusted from 84.6
 
 
   # List
