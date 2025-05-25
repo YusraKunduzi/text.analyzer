@@ -50,8 +50,13 @@ sentence_summary <- function(text) {
   avg_sentence_length <- mean(sentence_lengths)
 
   # Compute a basic readability score (e.g., Flesch-Kincaid-like formula)
-  readability_score <- 206.835 - (1.015 * avg_sentence_length) -
-    (84.6 * (sum(nchar(unlist(strsplit(text, "\\s+")))) / length(unlist(strsplit(text, "\\s+")))))
+  words <- unlist(strsplit(text, "\\s+"))
+  avg_word_length <- sum(nchar(words)) / length(words)
+
+  readability_score <- 206.835 -
+    (1.015 * avg_sentence_length) -
+    (84.6 * avg_word_length)
+
 
   # List
   return(structure(list(

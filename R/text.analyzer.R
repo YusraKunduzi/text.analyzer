@@ -8,6 +8,6 @@
 #' - Count the 10 most frequent words, excluding common stop words (`top10_words`)
 #' - Analyze sentence structure and readability (`sentence_summary`)
 #'
-#' @docType package
+#' @docType _PACKAGE
 #' @name text.analyzer
 NULL
